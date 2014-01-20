@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">UnirestHummingbird</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="nextAnimeButton">Next Anime</string>
+    <string name="nextAnimeButtonLoading">Loading</string>
+
+</resources>
