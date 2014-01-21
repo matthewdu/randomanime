@@ -3,8 +3,8 @@
 
     <string name="app_name">UnirestHummingbird</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
     <string name="nextAnimeButton">Next Anime</string>
     <string name="nextAnimeButtonLoading">Loading</string>
+    <string name="startupText">startupText</string>
 
 </resources>

@@ -1,5 +1,7 @@
 package com.example.uniresthummingbird;
 
+import java.util.List;
+
 import org.json.JSONException;
 
 import com.mashape.unirest.http.JsonNode;
@@ -9,6 +11,8 @@ public class Anime {
 	private String status;
 	private String url;
 	private String title;
+	private String alternate_title;
+	private List<Genre> genres;
 	private int episode_count;
 	private String cover_image;
 	private String synopsis;
@@ -29,6 +33,15 @@ public class Anime {
 			+	"Episodes: " + episode_count + "\n"
 			+	"Status: " + status + "\n"
 			+	"Type: " + show_type + "\n"
+			+	"Genres: " + getGenres() + "\n"
 			+	"Synopsis: " + synopsis + "\n";
 	}
+	
+	public String getGenres(){
+		String temp = "";
+		for(Genre genre: genres)
+			temp += genre.getGenre() + ", ";
+		return temp.substring(0, temp.length()-2);
+	}
+	
 }
