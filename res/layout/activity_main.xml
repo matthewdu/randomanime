@@ -25,7 +25,8 @@
         android:layout_alignParentTop="true"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/ic_launcher"
+        android:onClick="clickImage"/>
 
     <TextView
         android:id="@+id/textView1"

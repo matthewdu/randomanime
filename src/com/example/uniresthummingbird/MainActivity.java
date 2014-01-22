@@ -3,6 +3,8 @@ package com.example.uniresthummingbird;
 import java.util.Random;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
@@ -63,7 +65,7 @@ public class MainActivity extends Activity {
 								  .asJson();
 
 				} catch (UnirestException e) {
-					return "Failed";
+					return "Failed to load data. Check internet connection";
 				}
 
 				anime = gson.fromJson(request.getBody().toString(), Anime.class);
@@ -83,9 +85,15 @@ public class MainActivity extends Activity {
 			
 		}.execute();
 		
+		System.gc();
 	}
 	
-	
+	public void clickImage(View viw){
+		if(anime != null){
+			Intent openBrowser = new Intent(Intent.ACTION_VIEW, Uri.parse(anime.getUrl()));
+			startActivity(openBrowser);
+		}
+	}
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

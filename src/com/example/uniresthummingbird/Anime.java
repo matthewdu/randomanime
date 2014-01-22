@@ -48,4 +48,7 @@ public class Anime {
 		return this.cover_image;
 	}
 	
+	public String getUrl(){
+		return this.url;
+	}
 }
