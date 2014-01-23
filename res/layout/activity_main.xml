@@ -8,15 +8,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="118dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="nextAnime"
-        android:text="@string/nextAnimeButton" />
-
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="120dp"
@@ -24,9 +15,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:adjustViewBounds="true"
+        android:onClick="clickImage"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_launcher"
-        android:onClick="clickImage"/>
+        android:src="@drawable/ic_launcher" />
 
     <TextView
         android:id="@+id/textView1"
@@ -35,5 +26,41 @@
         android:layout_alignLeft="@+id/imageView1"
         android:layout_below="@+id/imageView1"
         android:text="@string/startupText" />
+
+    <Button
+        android:id="@+id/buttonDatabase"
+        android:layout_width="118dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/textView1"
+        android:onClick="startDatabaseActivity"
+        android:text="@string/database" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="118dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/imageView1"
+        android:onClick="nextAnime"
+        android:text="@string/nextAnimeButton" />
+
+        <Button
+            android:id="@+id/buttonResetDatabase"
+            android:layout_width="118dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/buttonDatabase"
+            android:layout_alignLeft="@+id/buttonDatabase"
+            android:onClick="resetDatabase"
+            android:text="@string/reset" />
+
+        <Button
+            android:id="@+id/buttonStore"
+            android:layout_width="118dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/button1"
+            android:layout_alignLeft="@+id/button1"
+            android:onClick="storeAnime"
+            android:text="@string/store" />
 
 </RelativeLayout>

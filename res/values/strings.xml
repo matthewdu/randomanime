@@ -6,5 +6,11 @@
     <string name="nextAnimeButton">Next Anime</string>
     <string name="nextAnimeButtonLoading">Loading</string>
     <string name="startupText">startupText</string>
+    <string name="database">Database</string>
+    <string name="store">Store</string>
+    <string name="title_activity_show_database">ShowDatabaseActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="reset">Reset Data</string>
+    <string name="added">Added</string>
 
 </resources>
