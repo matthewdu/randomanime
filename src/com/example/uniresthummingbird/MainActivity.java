@@ -132,6 +132,12 @@ public class MainActivity extends Activity {
 		System.out.println("Database Reset");
 	}
 	
+	
+	public void testLogin(View view){
+		Intent startLogin = new Intent(this, LoginActivity.class);
+		startActivity(startLogin);
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

@@ -28,6 +28,10 @@
             android:name="com.example.uniresthummingbird.ShowDatabaseActivity"
             android:label="@string/title_activity_show_database" >
         </activity>
+        <activity
+            android:name="com.example.uniresthummingbird.LoginActivity"
+            android:label="@string/title_activity_login">
+        </activity>
     </application>
 
 </manifest>

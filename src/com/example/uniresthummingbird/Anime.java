@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import android.database.Cursor;
+
 public class Anime {
 	private String slug;
 	private String title;
@@ -51,6 +53,22 @@ public class Anime {
 		List<String> list = Arrays.asList(genres.split(",\\s"));
 		this.genres = setGenreList(list);
 	}
+	
+	public Anime(Cursor c){
+		this.slug = c.getString(1);
+		this.title = c.getString(2);
+		this.show_type = c.getString(3);
+		
+		List<String> list = Arrays.asList(c.getString(4).split(",\\s"));
+		this.genres = setGenreList(list);
+		
+		this.episode_count = Integer.parseInt(c.getString(5));
+		this.status = c.getString(6);
+		this.synopsis = c.getString(7);
+		this.url = c.getString(8);
+		this.cover_image = c.getString(9);
+	}
+	
 	
 	private List<Genre> setGenreList(List<String> list){
 		List<Genre> temp = new ArrayList<Genre>();

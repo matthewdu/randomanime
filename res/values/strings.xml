@@ -12,5 +12,11 @@
     <string name="hello_world">Hello world!</string>
     <string name="reset">Reset Data</string>
     <string name="added">Added</string>
+    <string name="login_title">Login</string>
+    <string name="login_username">Username</string>
+    <string name="login_password">Password</string>
+    <string name="login_signinButton">Sign in</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="title_activity_login">LoginActivity</string>
 
 </resources>

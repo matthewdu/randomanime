@@ -53,19 +53,19 @@ public class AnimeDatabaseHelper extends SQLiteOpenHelper {
 	
 	public List<Anime> getAllAnime(){
 		List<Anime> list = new ArrayList<Anime>();
-		String selectQuery = "SELECT * FROM " + AnimeEntry.TABLE_NAME +
+		String selectAllQuery = "SELECT * FROM " + AnimeEntry.TABLE_NAME +
 							 " ORDER BY " + AnimeEntry.COLUMN_NAME_TITLE + " DESC";
 		
 		SQLiteDatabase db = this.getReadableDatabase();
-		Cursor c = db.rawQuery(selectQuery, null);
+		Cursor c = db.rawQuery(selectAllQuery, null);
 		
 		System.out.println("Finished Reading Database in getAllAnime method");
 		
 		if (c.moveToFirst()) {
             do {
-                Anime anime = new Anime(c.getString(1), c.getString(2), c.getString(3), c.getString(4), Integer.parseInt(c.getString(5)), c.getString(6), c.getString(7), c.getString(8), c.getString(9));
+                Anime anime = new Anime(c);
                 list.add(anime);
-                System.out.println("bye");
+                System.out.println(c.getPosition());
             } while (c.moveToNext());
             
         }
