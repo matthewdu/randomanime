@@ -1,10 +1,9 @@
 package com.example.uniresthummingbird;
 
 import android.app.Activity;
-import android.inputmethodservice.KeyboardView.OnKeyboardActionListener;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -15,10 +14,13 @@ import com.mashape.unirest.request.HttpRequestWithBody;
 
 public class LoginActivity extends Activity {
 	
-	EditText username;
-	EditText password;
-	HttpRequestWithBody request;
-	String token;
+	private EditText username;
+	private EditText password;
+	private HttpRequestWithBody request;
+	private String authToken;
+	private SharedPreferences loginCredentials;
+	public static final String PREF_NAME = "authenticationPreferenceFile"; //SharePreference file name
+	
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class LoginActivity extends Activity {
         
         username = (EditText) findViewById(R.id.editTextUsername);
         password = (EditText) findViewById(R.id.editTextPassword);
+        loginCredentials = getSharedPreferences(PREF_NAME, 0);
 
     }
 
@@ -42,12 +45,12 @@ public class LoginActivity extends Activity {
 			@Override
 			protected String doInBackground(Void... params) {
 		    	
-				
-				System.out.println(password.getText().toString());
 				System.out.println(username.getText().toString());
-				
+				System.out.println(password.getText().toString());
+
+			
 				try {
-					token = request
+					authToken = request
 							.field("username", username.getText().toString())
 							.field("password", password.getText().toString())
 							.asString().getBody().toString();
@@ -60,9 +63,15 @@ public class LoginActivity extends Activity {
 			}
     		
 			protected void onPostExecute(String result){
-				System.out.println(token);
-				if(token.contains("error"))
+				if(authToken.contains("error"))
 					System.out.println("Error");
+				else{
+					SharedPreferences.Editor editor = loginCredentials.edit();
+					editor.putString("authToken", authToken);
+					editor.commit();
+				}
+				
+				System.out.println(loginCredentials.getString("authToken", "Error"));
 			}
     	}.execute();
     }
