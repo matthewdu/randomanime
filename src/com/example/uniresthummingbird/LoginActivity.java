@@ -53,7 +53,7 @@ public class LoginActivity extends Activity {
 					authToken = request
 							.field("username", username.getText().toString())
 							.field("password", password.getText().toString())
-							.asString().getBody().toString();
+							.asString().getBody().toString().replaceAll("\"", "");
 				} catch (UnirestException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
