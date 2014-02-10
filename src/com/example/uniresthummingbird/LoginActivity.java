@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
@@ -63,12 +64,15 @@ public class LoginActivity extends Activity {
 			}
     		
 			protected void onPostExecute(String result){
-				if(authToken.contains("error"))
+				if(authToken.contains("error")){
 					System.out.println("Error");
+					Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+				}
 				else{
 					SharedPreferences.Editor editor = loginCredentials.edit();
 					editor.putString("authToken", authToken);
 					editor.commit();
+					Toast.makeText(getApplicationContext(), "Success!", Toast.LENGTH_SHORT).show();
 				}
 				
 				System.out.println(loginCredentials.getString("authToken", "Error"));
