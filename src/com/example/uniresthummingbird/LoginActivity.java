@@ -73,6 +73,7 @@ public class LoginActivity extends Activity {
 					editor.putString("authToken", authToken);
 					editor.commit();
 					Toast.makeText(getApplicationContext(), "Success!", Toast.LENGTH_SHORT).show();
+					finish();
 				}
 				
 				System.out.println(loginCredentials.getString("authToken", "Error"));
