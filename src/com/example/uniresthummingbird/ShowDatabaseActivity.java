@@ -19,6 +19,7 @@ import android.view.View.OnLongClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
@@ -121,6 +122,7 @@ public class ShowDatabaseActivity extends Activity {
 			} catch (UnirestException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
 			} finally {
 				return request;
 			}			
@@ -128,6 +130,7 @@ public class ShowDatabaseActivity extends Activity {
 		
 		protected void onPostExecute(String result){
 			System.out.println(result);
+			Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
 		}
 	}
 	
