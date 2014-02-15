@@ -18,5 +18,9 @@
     <string name="login_signinButton">Sign in</string>
     <string name="cancel_button">Cancel</string>
     <string name="title_activity_login">LoginActivity</string>
+    <string name="addPlanToWatchMessage">Add anime to Plan to Watch?</string>
+    <string name="updateLibraryAlertDialogTitle">Update Library</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
 
 </resources>
